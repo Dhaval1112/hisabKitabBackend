@@ -50,6 +50,10 @@ app.use(cors());
 app.use("/hkapi", authRoute);
 app.use("/hkapi", businessRoute);
 
+app.get("/hello", (req, res) => {
+  return res.send("HELlo ");
+});
+
 // port
 const port = 5000;
 // starting a server

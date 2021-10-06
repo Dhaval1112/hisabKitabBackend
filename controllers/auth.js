@@ -7,10 +7,12 @@ exports.signup = (req, res) => {
 
   user.save((err, user) => {
     if (!err || user) {
+      console.log(user);
       return res.status(200).json({
         id: user._id,
       });
     } else {
+      console.log(err);
       return res.status(400).json({
         err: "Mobile number already exists..!",
       });
@@ -26,7 +28,7 @@ exports.updateProfile = (req, res) => {
       name: req.body.name,
       lastName: req.body.lastName,
       email: req.body.email,
-      pin: req.body.pin,
+      // pin: req.body.pin,
     });
 
     user.profile = profile;
@@ -38,7 +40,7 @@ exports.updateProfile = (req, res) => {
           error: "Please enter valid profile data..!",
         });
       }
-      return res.status(200).json(profile);
+      return res.status(200).json(user);
     });
   });
 };

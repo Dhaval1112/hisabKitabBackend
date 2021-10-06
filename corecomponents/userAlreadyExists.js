@@ -5,6 +5,7 @@ exports.userAlreadyExists = (req, res, next) => {
   const mobileNo = req.body.mobileNo;
   User.findOne({ mobileNo }, (err, user) => {
     if (user) {
+      console.log("USER IS :: " + user);
       return res.send(user);
     }
     next();

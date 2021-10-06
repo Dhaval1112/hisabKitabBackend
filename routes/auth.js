@@ -28,10 +28,10 @@ router.post(
       .isAlpha()
       .withMessage("Only enter A-Z and a-z in name"),
     check("email").isEmail().withMessage("Email is required..!"),
-    check("pin")
-      .isNumeric()
-      .isLength({ min: 4 })
-      .withMessage("Enter pin as 4 digits only..!"),
+    // check("pin")
+    //   .isNumeric()
+    //   .isLength({ min: 4 })
+    //   .withMessage("Enter pin as 4 digits only..!"),
   ],
   errorExtractor,
   updateProfile
