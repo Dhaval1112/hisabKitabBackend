@@ -3,6 +3,7 @@ const { User } = require("../models/user");
 // original method
 exports.userAlreadyExists = (req, res, next) => {
   const mobileNo = req.body.mobileNo;
+  console.log("USER ALREADY EXIST", mobileNo);
   User.findOne({ mobileNo }, (err, user) => {
     if (user) {
       console.log("USER IS :: " + user);

@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const authRoute = require("./routes/auth");
 const businessRoute = require("./routes/business");
+const roomRoute = require("./routes/room");
 const app = express();
 const server = require("http").createServer(app);
 // importing io server from socket io
@@ -49,6 +50,7 @@ app.use(cors());
 // routes
 app.use("/hkapi", authRoute);
 app.use("/hkapi", businessRoute);
+app.use("/hkapi", roomRoute);
 
 app.get("/hello", (req, res) => {
   return res.send("HELlo ");

@@ -7,10 +7,8 @@ exports.signup = (req, res) => {
 
   user.save((err, user) => {
     if (!err || user) {
-      console.log(user);
-      return res.status(200).json({
-        id: user._id,
-      });
+      console.log("LAST IN CREATION", user);
+      return res.status(200).json(user); // TODO:  user was previous { id : user._id}
     } else {
       console.log(err);
       return res.status(400).json({

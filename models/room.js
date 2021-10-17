@@ -31,13 +31,23 @@ const roomSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  custommerId: {
+  customerId: {
     type: ObjectId,
     ref: "User",
     required: true,
   },
+  customerName: {
+    type: String,
+    trime: true,
+  },
   entries: [entrySchema],
+  grandTotal: {
+    type: Number,
+    default: 0,
+  },
 });
+
+roomSchema.index({ supplierId: 1, customerId: 1 }, { unique: true });
 
 const Room = mongoose.model("Room", roomSchema);
 

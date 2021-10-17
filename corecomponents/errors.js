@@ -10,6 +10,7 @@ const errorExtractor = (req, res, next) => {
       })),
     });
   }
+  console.log("GOING TO NEXT IN ERROR EXTRACTOR");
   next();
 };
 
