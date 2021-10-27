@@ -22,25 +22,25 @@ const { Room } = require("../models/room");
 //     err: "Mobile number already exists..!",
 //   })
 router.post("/room/create", roomAlreadyExists, (req, res) => {
-  // console.log("aaaaaadata from room route ", req.body.customerName);
-  const room = new Room(req.body);
-  room.save((err, room) => {
-    if (!err || room) {
-      return res.status(200).json({ room, isExists: false });
-    } else {
-      return res.status(402).json(err);
-    }
-  });
+	// console.log("aaaaaadata from room route ", req.body.customerName);
+	const room = new Room(req.body);
+	room.save((err, room) => {
+		if (!err || room) {
+			return res.status(200).json({ room, isExists: false });
+		} else {
+			return res.status(402).json(err);
+		}
+	});
 });
 
 router.post("/getCustomers", (req, res) => {
-  // const room =new Room();
-  Room.find(req.body, (err, rooms) => {
-    if (!err && rooms) {
-      console.log("ROoms is :: ", rooms);
-      res.status(200).json({ rooms });
-    }
-  });
+	// const room =new Room();
+	Room.find(req.body, (err, rooms) => {
+		if (!err && rooms) {
+			console.log("ROoms is :: ", rooms);
+			res.status(200).json({ rooms });
+		}
+	});
 });
 
 module.exports = router;
