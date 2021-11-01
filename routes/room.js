@@ -35,9 +35,10 @@ router.post("/room/create", roomAlreadyExists, (req, res) => {
 
 router.post("/getCustomers", (req, res) => {
 	// const room =new Room();
+	console.log("req body is ", req.body);
 	Room.find(req.body, (err, rooms) => {
 		if (!err && rooms) {
-			console.log("ROoms is :: ", rooms);
+			// console.log("ROoms is :: ", rooms);
 			res.status(200).json({ rooms });
 		}
 	});
